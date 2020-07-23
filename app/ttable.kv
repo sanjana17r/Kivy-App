@@ -1,0 +1,196 @@
+WindowManager:
+    Choose:
+    day1:
+    day2:
+    day3:
+    day4:
+    day5:
+    day6:
+    day7:
+
+<Button>:
+    font_size: 30
+    color: 1,1,1,1
+
+<CheckBoxBG>:
+    Label:
+    TextInput:
+    CheckBox:
+        canvas.before:
+            Color:
+                rgb: 1,0,1
+            Rectangle:
+                size:[16,16]
+            Color:
+                rgb: 1,1,1
+            Rectangle:
+                size:[14,14]
+
+    
+
+
+
+<P>:
+    nom:nom
+    nom1:nom1
+    Label:
+        text: "Enter the starting and ending time"
+        size_hint: 0.6, 0.2
+        pos_hint: {"x":0.2, "top":1}
+
+    TextInput:
+        font_size: 20
+        id: nom
+        size_hint: 0.8, 0.1
+        pos_hint: {"x":0.1, "y":0.5}
+
+    TextInput:
+        font_size: 20
+        id: nom1
+        size_hint: 0.8, 0.1
+        pos_hint: {"x":0.1, "y":0.3}
+
+    Button:
+        text: "Done"
+        size_hint: 0.8, 0.1
+        pos_hint: {"x":0.1, "y":0.1}
+        on_release: root.done()
+            
+    
+
+<Choose>:
+    name: "main"
+
+    canvas.before:
+        Rectangle:
+            pos: self.pos
+            size: self.size
+            source: 'light1.png' 
+
+    GridLayout:
+
+
+        size_hint: 0.2,0.1
+        pos_hint: {"x":0.4, "top":1}
+        cols : 1  
+
+        Button:
+            text : 'Add time'
+            on_release: root.show_popup()
+            border: (4, 4, 4, 4)
+
+    GridLayout:
+        size_hint: 0.3,0.5
+        pos_hint: {"x":0.35, "top":0.7}
+        cols : 1              
+
+        Button:
+            text : "Monday"
+            border: (4, 4, 4, 4)
+            on_release:
+                app.root.current = "mon"
+            
+
+        Button:
+            border: (4, 4, 4, 4)   
+            text : "Tuesday"
+            on_release:
+                app.root.current = "tue"
+
+        Button:
+            border: (4, 4, 4, 4)
+            text : "Wednesday"
+            on_release:
+                app.root.current = "wed"
+        
+        Button:
+            border: (4, 4, 4, 4)
+            text : "Thursday"
+            on_release:
+                app.root.current = "thu"
+
+        Button:
+            border: (4, 4, 4, 4)
+            text : "Friday"
+            on_release:
+                app.root.current = "fri"
+
+        Button : 
+            border: (4, 4, 4, 4)
+            text : "Saturday"
+            on_release:
+                app.root.current = "sat"
+
+        Button :
+            border: (4, 4, 4, 4)
+            text : "Sunday"
+            on_release:
+                app.root.current = "sun"
+
+
+
+<day1>:
+
+    canvas.before:
+        Rectangle:
+            pos: self.pos
+            size: self.size
+            source: 'ro.png'  
+
+
+    name:'mon'
+    GridLayout:
+        size_hint:0.15,0.08
+        pos_hint: {"x":0.32, "top":1}
+        cols:1
+        Button :
+            text : "Back"
+            on_release:
+                app.root.current = "main"
+
+    GridLayout:
+        size_hint:0.15,0.08
+        pos_hint: {"x":0.52, "top":1}
+        cols:1
+        Button :
+            text : "Clear All"
+            on_release:
+                root.clr()
+
+    GridLayout:
+        cols:1
+        size_hint:0.35,0.08
+        pos_hint: {"x":0.32, "top":1}
+        Button:
+            id: 'affiche'
+            text: 'show'
+            on_release: 
+                root.aff()
+                self.parent.remove_widget(self)
+
+    GridLayout:
+        cols: 3
+        size_hint: 0.6,0.9
+        pos_hint: {"x":0.20, "top":0.9}
+                            
+        GridLayout:
+            id: grid
+            cols: 3
+
+<day2>:
+    name: "tue"
+
+<day3>:
+    name: "wed"
+
+<day4>:
+    name: "thu"
+
+<day5>:
+    name: "fri"
+
+<day6>:
+    name: "sat"
+
+<day7>:
+    name: "sun"
